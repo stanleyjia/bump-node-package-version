@@ -62,11 +62,11 @@ async function run()
 
         // read back
         const pkg2 = JSON.parse(fs.readFileSync(file));
-        
-        console.dir(pkg2);
+        core.setOutput('pkg2', pkg2);
         if (pkg2.version)
         {
             const ver = parse_version(pkg2.version);
+            console.dir({ver});
             if (ver)
             {
                 core.setOutput('version', pkg2.version);
