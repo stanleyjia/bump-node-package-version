@@ -38,7 +38,7 @@ async function run()
                     patch++;
                 }
                 pkg.version = `${major}.${minor}.${patch}`;
-
+                console.dir({bump_major, bump_minor, bump_patch});
                 if (prerelease)
                 {
                     pkg.version += `-${prerelease}`;
@@ -77,6 +77,7 @@ async function run()
             if (pkg2.version === pkg.version)
             {
                 // no issues
+                console.dir("SUCCESS");
             }
             else
             {
