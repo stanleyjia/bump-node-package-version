@@ -38,7 +38,7 @@ async function run()
                     patch++;
                 }
                 pkg.version = `${major}.${minor}.${patch}`;
-
+                console.dir({major, minor, patch, prerelease, buildmetadata});
                 if (prerelease)
                 {
                     pkg.version += `-${prerelease}`;
@@ -62,6 +62,8 @@ async function run()
 
         // read back
         const pkg2 = JSON.parse(fs.readFileSync(file));
+        
+        console.dir(pkg2);
         if (pkg2.version)
         {
             const ver = parse_version(pkg2.version);
